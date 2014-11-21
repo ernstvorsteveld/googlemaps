@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="js/latlong.js"></script>
+    <script type="text/javascript" src="js/map-options.js"></script>
+    <script type="text/javascript" src="js/map-functions.js"></script>
+    <script type="text/javascript" src="js/announcement-data.js"></script>
+    <meta charset="UTF-8">
+    <title>Example Google Map</title>
+</head>
+<body>
+<div id="map-canvas" style="height:400px; width:600px;"></div>
+
+<script>
+    function initialise() {
+        var location = longitudeLatitude.getLongLatByPostalCode("9431BD");
+        var myLatLong = new google.maps.LatLng(location.lat, location.lng);
+        var mapOptions = new MapOptions();
+        var myMapOptions = mapOptions.setCenter(myLatLong);
+        var map = new google.maps.Map(document.getElementById('map-canvas'), myMapOptions);
+
+        for(i = 0; i < json.announcements.length; i++) {
+            var announcement = json.announcements[i];
+            var mapFunctions = new MapFunctions();
+            mapFunctions.setMarker(map, announcement.postalCode, announcement.name, announcement.city, announcement.date);
+        }
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialise);
+
+</script>
+</body>
+</html>

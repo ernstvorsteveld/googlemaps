@@ -1,0 +1,23 @@
+{
+    "name": "async-testing-tutorial",
+    "version": "0.0.1",
+    "description": "Testing",
+    "keywords": [
+        "test",
+        "tutorial"
+    ],
+    "author": "Ernst Vorsteveld",
+    "main": "index",
+    "engines": {
+        "node": ">= 0.4.x < 0.7.0"
+    },
+    "scripts": {
+        "test": "make test"
+    },
+    "dependencies": {
+        "requirejs": "~2.1.2"
+    },
+    "devDependencies": {
+        "mocha": "0.3.x"
+    }
+}
